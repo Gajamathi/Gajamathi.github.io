@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gajalakshmi Mathi - Technical Writer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 217, 163, 0.1);
+      z-index: 1000;
+      padding: 0 40px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #00d9a3;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00d9a3;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        gap: 20px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* SECTIONS COMMON STYLES */
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-padding {
+      padding: 100px 40px;
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-padding {
+        padding: 50px 16px;
+      }
+    }
+
+    .container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============ HERO SECTION ============ */
+    .hero-section {
+      padding-top: 150px;
+      padding-bottom: 100px;
+      padding-left: 40px;
+      padding-right: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 217, 163, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 217, 163, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: 50px;
+      right: 5%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #aaa;
+      margin-bottom: 32px;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-primary {
+      background: #00d9a3;
+      color: #0a0a0a;
+    }
+
+    .cta-primary:hover {
+      background: #00ffb3;
+      transform: translateY(-2px);
+    }
+
+    .cta-secondary {
+      border: 2px solid #00d9a3;
+      color: #00d9a3;
+      background: transparent;
+    }
+
+    .cta-secondary:hover {
+      background: rgba(0, 217, 163, 0.1);
+    }
+
+    /* ============ COMMON SECTION STYLES ============ */
+    .section-title {
+      font-size: 52px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      background: transparent;
+      border-radius: 2px;
+      display: none;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-top: 20px;
+      margin-bottom: 60px;
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .photo-card {
+      background: linear-gradient(135deg, rgba(0, 217, 163, 0.2) 0%, rgba(0, 217, 163, 0.08) 100%);
+      border: 3px solid #00d9a3;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 50px rgba(0, 217, 163, 0.5), 0 0 100px rgba(0, 217, 163, 0.2), inset 0 0 20px rgba(0, 217, 163, 0.1);
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 400px;
+      background: rgba(10, 10, 10, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-info {
+      text-align: center;
+    }
+
+    .photo-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .photo-title {
+      font-size: 14px;
+      color: #00d9a3;
+      margin-bottom: 8px;
+    }
+
+    .photo-location {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .quote-card {
+      background: linear-gradient(135deg, rgba(0, 217, 163, 0.2) 0%, rgba(0, 217, 163, 0.08) 100%);
+      border: 3px solid #00d9a3;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(0, 217, 163, 0.3), 0 0 60px rgba(0, 217, 163, 0.1), inset 0 0 15px rgba(0, 217, 163, 0.05);
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .quote-mark {
+      font-size: 48px;
+      color: #00d9a3;
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .quote-text {
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .how-i-work-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 24px;
+      margin-top: 40px;
+    }
+
+    .work-cards {
+      display: grid;
+      gap: 20px;
+    }
+
+    .work-card {
+      background: rgba(20, 20, 20, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .work-card ul {
+      list-style: none;
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .work-card li::before {
+      content: '●';
+      color: #00d9a3;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+
+      .section-title::before {
+        height: 40px;
+      }
+    }
+
+    /* ============ WHAT I DOCUMENT SECTION ============ */
+    .cards-grid {
+      display: grid;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .cards-grid.grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .cards-grid.grid-2 {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .cards-grid.grid-2.align-left {
+      justify-content: flex-start;
+      max-width: 100%;
+    }
+
+    .cards-grid.grid-2.align-center {
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto 60px;
+    }
+
+    .category-section {
+      margin-bottom: 100px;
+      position: relative;
+    }
+
+    .category-header {
+      margin-bottom: 48px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .category-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .category-accent-bar {
+      width: 0px;
+      height: 0px;
+      background: transparent;
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: none;
+    }
+
+    .category-text {
+      flex: 1;
+    }
+
+    .category-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .category-description {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .sub-card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(0, 217, 163, 0.15);
+      border-radius: 12px;
+      padding: 40px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sub-card:hover {
+      background: rgba(20, 20, 20, 0.8);
+      border-color: rgba(0, 217, 163, 0.3);
+      box-shadow: 0 12px 36px rgba(0, 217, 163, 0.15);
+    }
+
+    .card-content {
+      flex: 1;
+    }
+
+    .card-default,
+    .card-hover {
+      transition: opacity 0.3s ease;
+    }
+
+    .card-default {
+      opacity: 1;
+    }
+
+    .card-hover {
+      opacity: 0;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      right: 40px;
+      pointer-events: none;
+    }
+
+    .sub-card:hover .card-default {
+      opacity: 0;
+    }
+
+    .sub-card:hover .card-hover {
+      opacity: 1;
+    }
+
+    .card-header-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-icon {
+      font-size: 32px;
+      opacity: 0.9;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .card-items {
+      list-style: none;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-items li {
+      font-size: 14px;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-items li::before {
+      content: '●';
+      color: #00d9a3;
+      font-weight: bold;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00d9a3;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-cta:hover {
+      gap: 10px;
+    }
+
+    .card-cta::after {
+      content: '→';
+    }
+
+    /* ============ TOOLS & TECHNOLOGIES SECTION ============ */
+    .category-item {
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(0, 217, 163, 0.15);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .category-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .category-item-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .category-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(0, 217, 163, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .category-icon-wrapper svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .category-item-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-left: 104px;
+    }
+
+    .tool-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1.5px solid rgba(0, 217, 163, 0.4);
+      border-radius: 6px;
+      background: rgba(0, 217, 163, 0.05);
+      font-size: 14px;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tool-badge::before {
+      content: '●';
+      color: #00d9a3;
+      font-size: 10px;
+    }
+
+    .tool-badge:hover {
+      background: rgba(0, 217, 163, 0.12);
+      border-color: rgba(0, 217, 163, 0.6);
+      box-shadow: 0 4px 12px rgba(0, 217, 163, 0.1);
+    }
+
+    /* ============ MY JOURNEY SECTION ============ */
+    .journey-section {
+      position: relative;
+    }
+
+    .journey-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 217, 163, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 217, 163, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .journey-header {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-title {
+      font-size: 52px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .journey-title-accent {
+      width: 80px;
+      height: 2px;
+      background: #00d9a3;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .timeline-wrapper {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #00d9a3 0%, rgba(0, 217, 163, 0.2) 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin-bottom: 80px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .timeline-item:nth-child(even) {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
+    }
+
+    .timeline-item:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 40px;
+      width: 16px;
+      height: 16px;
+      background: #00d9a3;
+      border: 3px solid #0a0a0a;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: none;
+    }
+
+    .timeline-connector {
+      position: absolute;
+      top: 56px;
+      height: 2px;
+      border-top: 2px dashed rgba(0, 217, 163, 0.3);
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-connector {
+      right: -30px;
+      width: 30px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-connector {
+      left: -30px;
+      width: 30px;
+    }
+
+    .timeline-content {
+      position: relative;
+    }
+
+    .role-card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(0, 217, 163, 0.2);
+      border-radius: 12px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .role-card:hover {
+      border-color: rgba(0, 217, 163, 0.4);
+      background: rgba(20, 20, 20, 0.8);
+      box-shadow: 0 8px 24px rgba(0, 217, 163, 0.1);
+    }
+
+    .role-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .role-icon {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(0, 217, 163, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .role-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .role-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .role-company {
+      font-size: 14px;
+      color: #00d9a3;
+      margin-top: 4px;
+    }
+
+    .role-date {
+      font-size: 13px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .context-card {
+      background: rgba(20, 20, 20, 0.4);
+      border: 1px solid rgba(0, 217, 163, 0.15);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      transition: all 0.3s ease;
+    }
+
+    .context-card:hover {
+      border-color: rgba(0, 217, 163, 0.3);
+      background: rgba(20, 20, 20, 0.6);
+    }
+
+    .context-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #00d9a3;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .context-header svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .context-content {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* ============ LET'S CONNECT SECTION ============ */
+    .connect-section {
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .connect-section::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 217, 163, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      top: 20%;
+      left: 5%;
+      pointer-events: none;
+    }
+
+    .connect-section::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(0, 217, 163, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: 10%;
+      right: 5%;
+      pointer-events: none;
+    }
+
+    .connect-header {
+      margin-bottom: 80px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-accent-bar {
+      width: 0px;
+      height: 0px;
+      background: transparent;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 0px;
+      display: none;
+    }
+
+    .header-content {
+      flex: 1;
+    }
+
+    .connect-title {
+      font-size: 52px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .connect-subtitle {
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-top: 20px;
+    }
+
+    .connect-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info-group {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .contact-card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(0, 217, 163, 0.15);
+      border-radius: 12px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(0, 217, 163, 0.3);
+      background: rgba(20, 20, 20, 0.8);
+      box-shadow: 0 8px 24px rgba(0, 217, 163, 0.1);
+    }
+
+    .contact-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(0, 217, 163, 0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .contact-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-card:hover .contact-icon-wrapper {
+      border-color: rgba(0, 217, 163, 0.5);
+      background: rgba(0, 217, 163, 0.05);
+    }
+
+    .contact-card-content {
+      flex: 1;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #00d9a3;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .contact-value a {
+      color: #00d9a3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-value a:hover {
+      color: #00ffff;
+    }
+
+    .form-card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(0, 217, 163, 0.15);
+      border-radius: 12px;
+      padding: 48px;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .form-group {
+      margin-bottom: 28px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #00d9a3;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(0, 217, 163, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #555;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #00d9a3;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 0 0 3px rgba(0, 217, 163, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px 32px;
+      background: #00d9a3;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: #00ffb3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 217, 163, 0.3);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .status-message {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+    }
+
+    .status-message.success {
+      display: block;
+      background: rgba(0, 217, 163, 0.1);
+      color: #00d9a3;
+      border: 1px solid rgba(0, 217, 163, 0.3);
+    }
+
+    .status-message.error {
+      display: block;
+      background: rgba(255, 100, 100, 0.1);
+      color: #ff6464;
+      border: 1px solid rgba(255, 100, 100, 0.3);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .hero-section {
+        padding-top: 120px;
+        padding-bottom: 80px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+
+      .section-title::before {
+        height: 40px;
+      }
+
+      .tools-grid {
+        margin-left: 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .timeline-item:nth-child(even) {
+        direction: ltr;
+      }
+
+      .timeline-connector {
+        display: none;
+      }
+
+      .timeline-line {
+        left: 40px;
+      }
+
+      .connect-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .connect-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 60px;
+        padding: 0 20px;
+      }
+
+      .hero-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .section-title::before {
+        height: 32px;
+      }
+
+      .section-subtitle {
+        margin-bottom: 40px;
+      }
+
+      .journey-section {
+        padding: 60px 20px;
+      }
+
+      .timeline-wrapper {
+        padding-left: 0;
+      }
+
+      .timeline-line {
+        display: none;
+      }
+
+      .timeline-item {
+        margin-bottom: 60px;
+        gap: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item:nth-child(even) {
+        direction: ltr;
+      }
+
+      .connect-section {
+        padding: 60px 20px;
+      }
+
+      .connect-header {
+        margin-bottom: 60px;
+      }
+
+      .connect-title {
+        font-size: 32px;
+      }
+
+      .form-card {
+        padding: 36px 24px;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .contact-icon-wrapper {
+        width: 48px;
+        height: 48px;
+      }
+
+      .category-item {
+        margin-bottom: 48px;
+        padding-bottom: 48px;
+      }
+
+      .tools-grid {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-section {
+        padding-top: 80px;
+        padding-bottom: 50px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .section-title::before {
+        height: 28px;
+      }
+
+      .journey-section {
+        padding: 50px 16px;
+      }
+
+      .journey-title {
+        font-size: 28px;
+      }
+
+      .journey-title-accent {
+        width: 60px;
+      }
+
+      .timeline-item {
+        margin-bottom: 50px;
+        gap: 16px;
+      }
+
+      .connect-section {
+        padding: 50px 16px;
+      }
+
+      .connect-header {
+        margin-bottom: 50px;
+        gap: 10px;
+      }
+
+      .connect-title {
+        font-size: 28px;
+      }
+
+      .connect-content {
+        gap: 40px;
+      }
+
+      .form-card {
+        padding: 28px 20px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+
+      .contact-card {
+        padding: 24px;
+      }
+
+      .contact-icon-wrapper {
+        width: 44px;
+        height: 44px;
+      }
+
+      .category-item {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+      }
+
+      .category-icon-wrapper {
+        width: 64px;
+        height: 64px;
+      }
+
+      .tools-grid {
+        gap: 8px;
+      }
+
+      .tool-badge {
+        font-size: 12px;
+        padding: 7px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home" class="nav-brand">Gaj</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#document">What I Document</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Technical Writer & Content Creator</h1>
+        <p class="hero-subtitle">I turn complex products into clear, user-friendly documentation. I believe great content builds trust, drives adoption, and delights users.</p>
+        <div class="hero-ctas">
+          <a href="#connect" class="cta-button cta-primary">Get in Touch</a>
+          <a href="#journey" class="cta-button cta-secondary">See My Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div>
+          <div class="photo-card">
+            <div class="photo-frame">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">Your photo here</div>
+            </div>
+            <div class="photo-info">
+              <div class="photo-name">Gajalakshmi Mathi</div>
+              <div class="photo-title">Technical Writer</div>
+              <div class="photo-location">Chennai, India</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quote-card">
+            <div class="quote-mark">"</div>
+            <div class="quote-text">I wrote for fun in my teens and discovered in my twenties that it was a skill worth building a career on. My teenage self wrote poems about trees; today, I'm building structured documentation, one branch at a time.</div>
+          </div>
+          <div class="quote-text" style="margin-top: 20px; margin-bottom: 20px;">Turns out, whether it's a poem or a product, I'm still trying to help someone make sense of what's in front of them.</div>
+          <div class="quote-text">This site is that same instinct, put to work — the projects, the tools, the process.</div>
+          <div class="how-i-work-title">HOW I WORK</div>
+          <div class="work-cards">
+            <div class="work-card">
+              <ul>
+                <li>Research & Understanding</li>
+                <li>User-Centric Design</li>
+                <li>Clarity & Simplicity</li>
+              </ul>
+            </div>
+            <div class="work-card">
+              <ul>
+                <li>Iterative Refinement</li>
+                <li>Testing & Feedback</li>
+                <li>Continuous Improvement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DOCUMENT SECTION -->
+  <section class="section-padding" id="document">
+    <div class="container">
+      <h2 class="section-title">What I Document</h2>
+      <p class="section-subtitle">Documentation that turns complex products into intuitive experiences.</p>
+
+      <!-- CATEGORY 1: PRODUCT DOCUMENTATION -->
+      <div class="category-section">
+        <div class="category-header">
+          <span class="category-icon">📘</span>
+          <div class="category-accent-bar"></div>
+          <div class="category-text">
+            <h3 class="category-title">Product Documentation</h3>
+            <p class="category-description">Helping users understand and use products with confidence.</p>
+          </div>
+        </div>
+        <div class="cards-grid grid-3">
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">📄</span>
+              <h4 class="card-title">Product Docs</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Product Overview</li>
+                  <li>Key Features</li>
+                  <li>Information Architecture</li>
+                  <li>User Workflow</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>Vision and goals</li>
+                  <li>Core capabilities</li>
+                  <li>Content hierarchy</li>
+                  <li>User journey</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/product-documentation" class="card-cta">Open Documentation</a>
+          </div>
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">📖</span>
+              <h4 class="card-title">User Guides</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Installation</li>
+                  <li>Getting Started</li>
+                  <li>Configuration</li>
+                  <li>Best Practices</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>Setup steps</li>
+                  <li>Onboarding</li>
+                  <li>Customization</li>
+                  <li>Usage tips</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/user-guides" class="card-cta">Explore Guides</a>
+          </div>
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">📚</span>
+              <h4 class="card-title">Knowledge Base</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Help Articles</li>
+                  <li>FAQs</li>
+                  <li>Troubleshooting</li>
+                  <li>Known Issues</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>How-to guides</li>
+                  <li>Common questions</li>
+                  <li>Error fixes</li>
+                  <li>Bugs & workarounds</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/knowledge-base" class="card-cta">Search Knowledge Base</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2: DEVELOPER DOCUMENTATION -->
+      <div class="category-section">
+        <div class="category-header">
+          <span class="category-icon">💻</span>
+          <div class="category-accent-bar"></div>
+          <div class="category-text">
+            <h3 class="category-title">Developer Documentation</h3>
+            <p class="category-description">Technical resources for seamless integration and efficient development.</p>
+          </div>
+        </div>
+        <div class="cards-grid grid-2 align-left">
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">🔗</span>
+              <h4 class="card-title">API Documentation</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Authentication</li>
+                  <li>API Endpoints</li>
+                  <li>Request & Response</li>
+                  <li>Status Codes</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>API key management</li>
+                  <li>Endpoint reference</li>
+                  <li>Format specs</li>
+                  <li>Error meanings</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/api-documentation" class="card-cta">Explore API Reference</a>
+          </div>
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">🛠</span>
+              <h4 class="card-title">Troubleshooting</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Error Codes</li>
+                  <li>Root Cause</li>
+                  <li>Resolution Steps</li>
+                  <li>Related Articles</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>Code reference</li>
+                  <li>Why it fails</li>
+                  <li>Fix steps</li>
+                  <li>Related docs</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/troubleshooting" class="card-cta">View Troubleshooting</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3: PRODUCT COMMUNICATION -->
+      <div class="category-section">
+        <div class="category-header">
+          <span class="category-icon">🚀</span>
+          <div class="category-accent-bar"></div>
+          <div class="category-text">
+            <h3 class="category-title">Product Communication</h3>
+            <p class="category-description">Clear communication that keeps users informed and engaged.</p>
+          </div>
+        </div>
+        <div class="cards-grid grid-2 align-center">
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">📝</span>
+              <h4 class="card-title">Release Notes</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Version History</li>
+                  <li>New Features</li>
+                  <li>Improvements</li>
+                  <li>Bug Fixes</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>Past releases</li>
+                  <li>Added features</li>
+                  <li>Updates</li>
+                  <li>Fixes</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/release-notes" class="card-cta">See What's New</a>
+          </div>
+          <div class="sub-card">
+            <div class="card-header-top">
+              <span class="card-icon">✨</span>
+              <h4 class="card-title">UX Writing</h4>
+            </div>
+            <div class="card-content">
+              <div class="card-default">
+                <div class="card-items">
+                  <li>Buttons & Labels</li>
+                  <li>Empty States</li>
+                  <li>Tooltips</li>
+                  <li>Error Messages</li>
+                </div>
+              </div>
+              <div class="card-hover">
+                <div class="card-items">
+                  <li>UI copy</li>
+                  <li>Blank states</li>
+                  <li>Helper text</li>
+                  <li>Error copy</li>
+                </div>
+              </div>
+            </div>
+            <a href="https://github.com/Gajalakshmi-27/Technical-Writing-Portfolio/tree/main/ux-writing" class="card-cta">Explore Writing Guidelines</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS & TECHNOLOGIES SECTION -->
+  <section class="section-padding" id="tools">
+    <div class="container">
+      <h2 class="section-title">Tools & Technologies</h2>
+      <p class="section-subtitle">Tools and platforms I use to research, write, design and build better documentation.</p>
+
+      <div class="category-item">
+        <div class="category-item-header">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="category-item-title">AUTHORING</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-badge">MadCap Flare</div>
+          <div class="tool-badge">MS Word</div>
+          <div class="tool-badge">Markdown</div>
+          <div class="tool-badge">DITA XML</div>
+          <div class="tool-badge">Oxygen XML</div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-item-header">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="#00d9a3" stroke-width="2"/>
+              <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="category-item-title">API & DATA</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-badge">JSON</div>
+          <div class="tool-badge">XML</div>
+          <div class="tool-badge">REST APIs</div>
+          <div class="tool-badge">Postman</div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-item-header">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="5" r="2.5" fill="none" stroke="#00d9a3" stroke-width="1.5"/>
+              <circle cx="18" cy="5" r="2.5" fill="none" stroke="#00d9a3" stroke-width="1.5"/>
+              <circle cx="12" cy="17" r="2.5" fill="none" stroke="#00d9a3" stroke-width="1.5"/>
+              <path d="M6 7.5L6 11M18 7.5L18 11M6 11Q12 14 12 14.5M18 11Q12 14 12 14.5" fill="none" stroke="#00d9a3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="category-item-title">VERSION CONTROL</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-badge">Git</div>
+          <div class="tool-badge">GitHub</div>
+          <div class="tool-badge">GitLab</div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-item-header">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 20L20 4" stroke="#00d9a3" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 22L3 19L18 4L21 7Z" fill="none" stroke="#00d9a3" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M20 20L4 4" stroke="#00d9a3" stroke-width="2" stroke-linecap="round"/>
+              <line x1="6" y1="8" x2="8" y2="6" stroke="#00d9a3" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="12" x2="12" y2="10" stroke="#00d9a3" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="14" y1="16" x2="16" y2="14" stroke="#00d9a3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="category-item-title">DESIGN</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-badge">Figma</div>
+          <div class="tool-badge">Canva</div>
+          <div class="tool-badge">Adobe Acrobat Pro</div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-item-header">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="16 18 22 12 16 6" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="8 6 2 12 8 18" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="category-item-title">TECHNICAL</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-badge">VS Code</div>
+          <div class="tool-badge">HTML</div>
+          <div class="tool-badge">CSS</div>
+          <div class="tool-badge">Flutter</div>
+          <div class="tool-badge">Dart</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY JOURNEY SECTION -->
+  <section class="journey-section section-padding" id="journey">
+    <div class="container">
+      <div class="journey-header">
+        <h2 class="journey-title">My Journey</h2>
+        <div class="journey-title-accent"></div>
+      </div>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="role-card">
+              <div class="timeline-connector"></div>
+              <div class="role-header">
+                <div class="role-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <polyline points="13 2 13 9 20 9" stroke="#00d9a3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="role-title">Technical Writer</div>
+                  <div class="role-company">VisAI Labs</div>
+                  <div class="role-date">May – Nov 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="7" height="7" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                  <rect x="14" y="3" width="7" height="7" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                  <rect x="14" y="14" width="7" height="7" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                  <rect x="3" y="14" width="7" height="7" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                PRODUCTS
+              </div>
+              <div class="context-content">vAudit, vMeasure</div>
+            </div>
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                SKILLS
+              </div>
+              <div class="context-content">DITA XML, Oxygen XML Editor, Markdown</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                SKILLS
+              </div>
+              <div class="context-content">SEO Content, Website Content, Product Content, Social Media Copy</div>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="role-card">
+              <div class="timeline-connector"></div>
+              <div class="role-header">
+                <div class="role-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="role-title">Content Writer</div>
+                  <div class="role-company">Ztrategize</div>
+                  <div class="role-date">Jan – Apr 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="role-card">
+              <div class="timeline-connector"></div>
+              <div class="role-header">
+                <div class="role-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <polyline points="9 22 9 12 15 12 15 22" stroke="#00d9a3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="role-title">Content Writing Intern</div>
+                  <div class="role-company">Joy Technologies</div>
+                  <div class="role-date">Nov 2024 – Jan 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                SKILLS
+              </div>
+              <div class="context-content">Website Content, Social Media Copy, Guest Blog, Basic SEO</div>
+            </div>
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="9" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                CLIENTS
+              </div>
+              <div class="context-content">Multiple Clients</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                SKILLS
+              </div>
+              <div class="context-content">AI Content Evaluation, Technical Content Review, Quality & Clarity Assessment, Documentation QA</div>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="role-card">
+              <div class="timeline-connector"></div>
+              <div class="role-header">
+                <div class="role-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="16 18 22 12 16 6" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="8 6 2 12 8 18" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="role-title">Content Engineer</div>
+                  <div class="role-company">GlobalLogic India</div>
+                  <div class="role-date">May – Sept 2024</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="role-card">
+              <div class="role-header">
+                <div class="role-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="role-title">Content Writer</div>
+                  <div class="role-company">Biotikos, SASTRA (VOLUNTEER)</div>
+                  <div class="role-date">2022 – 2023</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <div class="context-card">
+              <div class="context-header">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="#00d9a3" stroke-width="2"/>
+                </svg>
+                SKILLS
+              </div>
+              <div class="context-content">Research Communication, Digital Content, Social Media Management</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LET'S CONNECT SECTION -->
+  <section class="connect-section" id="connect">
+    <div class="container">
+      <div class="connect-header">
+        <div class="header-accent-bar"></div>
+        <div class="header-content">
+          <h2 class="connect-title">Let's Connect</h2>
+          <p class="connect-subtitle">Better documentation creates better user experiences. Better user experiences build lasting customer trust.</p>
+        </div>
+      </div>
+
+      <div class="connect-content">
+        <div class="contact-info-group">
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 6l-8 5L4 6" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:mateja64@gmail.com">mateja64@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="2" y="9" width="4" height="12" fill="none" stroke="#00d9a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="4" cy="4" r="2" fill="none" stroke="#00d9a3" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <a href="https://linkedin.com/in/gajalakshmi-27" target="_blank">linkedin.com/in/gajalakshmi-27</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.1 6.8 9.5.5 0 .7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8 0-.6.3-1.1.6-1.3-2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.5-.3.8 0 1.7.1 2.5.3 1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z" fill="none" stroke="#00d9a3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">
+                <a href="https://github.com/Gajalakshmi-27" target="_blank">github.com/Gajalakshmi-27</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="connectForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Your full name" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="your@email.com" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="Your phone number" 
+                required
+              >
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Send Message
+            </button>
+
+            <div id="statusMessage" class="status-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6Wo38zGnpno3wc0h2laBJDwLJMrIo_H_3Xgf8FutRSPa8on-Qgs5_8scrjQ6IPNNG/exec';
+
+    const form = document.getElementById('connectForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      statusMessage.textContent = '';
+      statusMessage.classList.remove('success', 'error');
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!name || !email || !phone) {
+        showError('Please fill in all fields.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const url = SCRIPT_URL + '?' + new URLSearchParams({
+        name: name,
+        email: email,
+        phone: phone
+      });
+
+      try {
+        await fetch(url, {
+          method: 'GET',
+          mode: 'no-cors'
+        })
+        .then(() => showSuccess())
+        .catch(() => showError('Network error. Please try again.'));
+      } catch (error) {
+        showError('An unexpected error occurred.');
+      }
+    });
+
+    function showSuccess() {
+      statusMessage.textContent = '✓ Your message has been sent! I\'ll get back to you soon.';
+      statusMessage.classList.add('success');
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+
+      setTimeout(() => {
+        statusMessage.textContent = '';
+        statusMessage.classList.remove('success');
+      }, 5000);
+    }
+
+    function showError(message) {
+      statusMessage.textContent = '✗ ' + message;
+      statusMessage.classList.add('error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+
+      setTimeout(() => {
+        statusMessage.textContent = '';
+        statusMessage.classList.remove('error');
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
